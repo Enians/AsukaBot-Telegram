@@ -1,6 +1,7 @@
 const Telegraf = require('micro-bot');
 const Extra = require('telegraf/extra');
-const bot = new Telegraf('1235995780:AAEioe8xn4VOde4kyhng-tuEdCUD4MjRqWI');
+// const bot = new Telegraf('1235995780:AAEioe8xn4VOde4kyhng-tuEdCUD4MjRqWI');
+const bot = new Composer
 
 const AnimationUrl1 = 'https://data.whicdn.com/images/149722992/original.gif';
 const AnimationUrl0 = 'https://i.pinimg.com/originals/09/8e/d5/098ed5b62803063a74eb519ee415c7e6.gif';
