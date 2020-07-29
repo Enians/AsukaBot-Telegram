@@ -1,0 +1,10 @@
+{
+  "name": "asukabot",
+  "version": "0.0.1",
+  "description": "bot para telegram",
+  "main": "index.js",
+  "dependencies": {
+    "telegraf": "^3.38.0",
+    "telegraf-inline-menu": "^5.0.0"
+  }
+}
