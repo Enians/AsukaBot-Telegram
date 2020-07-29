@@ -1,4 +1,4 @@
-const Telegraf = require('telegraf');
+const Telegraf = require('micro-bot');
 const Extra = require('telegraf/extra');
 const bot = new Telegraf('1235995780:AAEioe8xn4VOde4kyhng-tuEdCUD4MjRqWI');
 
@@ -25,10 +25,9 @@ bot.command('jueves', message=> {
 		message.replyWithAnimation(AnimationUrl0, Extra.caption('Aún no es Jueves ~Baka~').markdown())
 	}
 })
-// bot.command('animation', (ctx) => {
-// 	ctx.replyWithAnimation(AnimationUrl1);
-// })
-bot.launch();
+
+//bot.launch();
+module.exports = bot
 
 function esJueves(){
 	var d = new Date();

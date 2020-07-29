@@ -3,8 +3,16 @@
   "version": "0.0.1",
   "description": "bot para telegram",
   "main": "index.js",
+  "scripts": {
+  "start": "micro-bot"
+  },
   "dependencies": {
-    "telegraf": "^3.38.0",
+    "micro-bot": "^2.5.3",
     "telegraf-inline-menu": "^5.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Enians/AsukaBot"
   }
 }
