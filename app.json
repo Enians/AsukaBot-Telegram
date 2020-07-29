@@ -1,0 +1,7 @@
+{
+  "name": "Asuka Bot",
+  "description": "Bot de Prueba Feliz Jueves",
+  "repository": "https://github.com/Enians/AsukaBot",
+  "keywords": ["node", "bot", "telegram"],
+  "image": "heroku/nodejs"
+}
