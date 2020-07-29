@@ -1,2 +1,3 @@
-# Misfit-Enian
-Proyectos de prueba que hago por diversion y para aprender
+# Jueves-Bot / Asuka-Bot
+/jueves
+Si no es Jueves eres un BAAAKA~~
