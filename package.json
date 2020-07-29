@@ -4,9 +4,10 @@
   "description": "bot para telegram",
   "main": "index.js",
   "scripts": {
-  "start": "micro-bot"
+    "start": "micro-bot"
   },
   "dependencies": {
+    "git": "^0.1.5",
     "micro-bot": "^2.5.3",
     "telegraf-inline-menu": "^5.0.0"
   },
