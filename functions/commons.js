@@ -1,5 +1,6 @@
 module.exports = {
     esJueves: function () {
+        process.env.TZ = 'America/Santiago'
         var d = new Date();
         var weekday = new Array(7);
         weekday[0] = "Domingo";
@@ -9,7 +10,6 @@ module.exports = {
         weekday[4] = "Jueves";
         weekday[5] = "Viernes";
         weekday[6] = "Sabado";
-
         return weekday[d.getDay()] == "Jueves";
     },
 
@@ -62,5 +62,9 @@ module.exports = {
             case 5:
                 return AnimationUrl5;
         }
+    },
+
+    getToucan: function(){
+        return '░░░░░░░▄▄▄▀▀▀▄▄███▄░░░\n░░░░▄▀▀░░░░░░░▐░▀██▌░░\n░░▄▀░░░░▄▄███░▌▀▀░▀█░░\n░▄█░░▄▀▀▒▒▒▒▒▄▐░░░░█▌░\n▐█▀▄▀▄▄▄▄▀▀▀▀▌░░░░░▐█▄\n▌▄▄▀▀░░░░░░░░▌░░░░▄███\n░░░░░░░░░░░░▐░░░░▐████\n░░░░le░░░░░░░▐░░░░▐████\n░░░toucan░░░░░░▀▄░░░▐███\n░░░░░has░░░░░░░░▀▄▄████\n░░░░░arrived░░░░░░░░░░░░█';
     }
 };
