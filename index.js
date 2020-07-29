@@ -1,50 +1,45 @@
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
-const axios = require('axios')
+const Telegraf = require('telegraf');
+const Extra = require('telegraf/extra');
+const bot = new Telegraf('1235995780:AAEioe8xn4VOde4kyhng-tuEdCUD4MjRqWI');
 
-app.use(bodyParser.json()) // for parsing application/json
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-) // for parsing application/x-www-form-urlencoded
+const AnimationUrl1 = 'https://data.whicdn.com/images/149722992/original.gif';
+const AnimationUrl0 = 'https://i.pinimg.com/originals/09/8e/d5/098ed5b62803063a74eb519ee415c7e6.gif';
 
-//This is the route the API will call
-app.post('/new-message', function(req, res) {
-  const { message } = req.body
-
-  //Each message contains "text" and a "chat" object, which has an "id" which is the chat id
-
-  if (!message || message.text.toLowerCase().indexOf('marco') < 0) {
-    // In case a message is not present, or if our message does not have the word marco in it, do nothing and return an empty response
-    return res.end()
-  }
-
-  // If we've gotten this far, it means that we have received a message containing the word "marco".
-  // Respond by hitting the telegram bot API and responding to the approprite chat_id with the word "Polo!!"
-  // Remember to use your own API toked instead of the one below  "https://api.telegram.org/bot<your_api_token>/sendMessage"
-  axios
-    .post(
-      'https://api.telegram.org/bot1224381977:AAFISryKbIcmc6hJIiDzxm2ZTVe648nyCEc/sendMessage',
-      {
-        chat_id: message.chat.id,
-        text: 'Polo!!'
-      }
-    )
-    .then(response => {
-      // We get here if the message was successfully posted
-      console.log('Message posted')
-      res.end('ok')
-    })
-    .catch(err => {
-      // ...and here if it was not
-      console.log('Error :', err)
-      res.end('Error :' + err)
-    })
+bot.start((context) => {
+	console.log('Service Started...');
+	context.reply('Feliz Jueves !');
 })
-
-// Finally, start our server
-app.listen(3000, function() {
-  console.log('Telegram app listening on port 3000!')
+bot.command('jueves', message=> {
+	try{
+		console.log(esJueves());
+	}
+	catch(error){
+		console.log('Error: ' + error);
+	}
+	if(esJueves()){
+		// message.reply('Feliz Jueves !');
+		message.replyWithAnimation(AnimationUrl1, Extra.caption('Feliz Jueves !').markdown())
+	}
+	else{		
+		// message.reply('Aún no es Jueves ~Baka~');
+		message.replyWithAnimation(AnimationUrl0, Extra.caption('Aún no es Jueves ~Baka~').markdown())
+	}
 })
+// bot.command('animation', (ctx) => {
+// 	ctx.replyWithAnimation(AnimationUrl1);
+// })
+bot.launch();
+
+function esJueves(){
+	var d = new Date();
+	var weekday = new Array(7);
+	weekday[0] = "Domingo";
+	weekday[1] = "Lunes";
+	weekday[2] = "Martes";
+	weekday[3] = "Miercoles";
+	weekday[4] = "Jueves";
+	weekday[5] = "Viernes";
+	weekday[6] = "Sabado";
+
+	return weekday[d.getDay()] == "Jueves";
+};

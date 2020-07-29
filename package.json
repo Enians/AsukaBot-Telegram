@@ -1,28 +1,10 @@
 {
-  "name": "drossbot",
+  "name": "asukabot",
   "version": "0.0.1",
   "description": "bot para telegram",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Enians/MisfitLab.git"
-  },
-  "keywords": [
-    "bot"
-  ],
-  "author": "Misfit",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Enians/MisfitLab/issues"
-  },
-  "homepage": "https://github.com/Enians/MisfitLab#readme",
   "dependencies": {
-    "axios": "^0.19.2",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "telegraf": "^3.38.0",
+    "telegraf-inline-menu": "^5.0.0"
   }
 }
