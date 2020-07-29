@@ -4,8 +4,13 @@ const functions = require('./functions/commons');
 const bot = new Composer
 
 bot.start((context) => {
-	console.log('Service Started...');
-})
+	var date_ob = new Date();
+	var date_ab = new Date();
+	date_ab.setMilliseconds(1 * 60 * 60 * 1000);
+	date_ab.setMilliseconds(-1 * (date_ob.getMinutes() * 60 * 1000));
+	date_ab.setMilliseconds(-1 * (date_ob.getSeconds() * 1000));
+	setTimeout(esJueves, (0 + (date_ab.getTime() - date_ob.getTime())), context);
+});
 bot.command('jueves', message=> {
 	try{
 		console.log(functions.esJueves());
@@ -21,7 +26,23 @@ bot.command('jueves', message=> {
 	}
 });
 bot.command('praise', message =>{
-	message.reply('░░░░░░░▄▄▄▀▀▀▄▄███▄░░░\n░░░░▄▀▀░░░░░░░▐░▀██▌░░\n░░▄▀░░░░▄▄███░▌▀▀░▀█░░\n░▄█░░▄▀▀▒▒▒▒▒▄▐░░░░█▌░\n▐█▀▄▀▄▄▄▄▀▀▀▀▌░░░░░▐█▄\n▌▄▄▀▀░░░░░░░░▌░░░░▄███\n░░░░░░░░░░░░▐░░░░▐████\n░░░░le░░░░░░░▐░░░░▐████\n░░░toucan░░░░░░▀▄░░░▐███\n░░░░░has░░░░░░░░▀▄▄████\n░░░░░arrived░░░░░░░░░░░░█');
+	message.reply(functions.getToucan());
 });
+
+bot.command('testTimeZone', message =>{
+	process.env.TZ = 'America/Santiago'
+	var d = new Date();
+	message.reply(d.toString());
+	message.reply(d.toLocaleTimeString());
+});
+
+function esJueves(ctx){
+	const timer = setInterval(() => {
+		if(functions.esJueves()){
+			ctx.replyWithAnimation(functions.getRandomGif(), Extra.caption('❤️❤️ ¡ Feliz Jueves ! ❤️❤️').markdown())
+			break;
+		}
+	}, 3600000); // 3600000 una hora
+}
 
 module.exports = bot
