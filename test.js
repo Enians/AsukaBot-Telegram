@@ -43,8 +43,8 @@ bot.command('praise', message =>{
 });
 
 bot.command('testTimeZone', message =>{
-	moment.locale('es-CL'); 
-	message.reply(moment().format('dddd').toString());
+	message.reply(moment().locale('es-CL').format('dddd').toString());
+	message.reply(moment().locale('es-CL').format('LLLL'));
 });
 
 bot.launch();
