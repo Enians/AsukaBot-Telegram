@@ -30,10 +30,8 @@ bot.command('praise', message =>{
 });
 
 bot.command('testTimeZone', message =>{
-	process.env.TZ = 'America/Santiago'
-	var d = new Date();
-	message.reply(d.toString());
-	message.reply(d.toLocaleTimeString());
+	moment.locale('es-CL'); 
+	message.reply(moment().format('dddd'));
 });
 
 function esJueves(ctx){
