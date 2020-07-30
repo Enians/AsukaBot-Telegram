@@ -43,8 +43,8 @@ bot.command('praise', message =>{
 });
 
 bot.command('testTimeZone', message =>{
-	message.reply(moment().tz("America/Santiago").format('dddd').toString());
-	message.reply(moment().tz("America/Santiago").format('LLLL'));
+	message.reply(moment().tz("America/Santiago").locale('es-CL').format('dddd'));
+	message.reply(moment().tz("America/Santiago").locale('es-CL').format('LLLL'));
 });
 
 bot.launch();
