@@ -31,9 +31,8 @@ bot.command('praise', message =>{
 });
 
 bot.command('testTimeZone', message =>{
-	moment.locale('es-CL'); 
-	message.reply(moment().format('dddd').toString());
-	message.reply(moment().format('LLLL'));
+	message.reply(moment().tz("America/Santiago").format('dddd').toString());
+	message.reply(moment().tz("America/Santiago").format('LLLL'));
 });
 
 function esJueves(ctx){
