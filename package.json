@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "micro-bot": "^2.5.3",
+    "moment": "^2.27.0",
     "telegraf": "^3.38.0"
   },
   "license": "MIT",

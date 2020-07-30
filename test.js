@@ -2,6 +2,7 @@ const Telegraf = require('telegraf');
 const Extra = require('telegraf/extra');
 const session = require('telegraf/session');
 const functions = require('./functions/commons');
+const moment = require('moment');
 // t.me/JuevesTestBot
 const bot = new Telegraf('1361364503:AAEOCPGRGFk-xX0HYeNH--0X4D3kHBD_ga0');
 
@@ -42,10 +43,8 @@ bot.command('praise', message =>{
 });
 
 bot.command('testTimeZone', message =>{
-	process.env.TZ = 'America/Santiago'
-	var d = new Date();
-	message.reply(d.toString());
-	message.reply(d.toLocaleTimeString());
+	moment.locale('es-CL'); 
+	message.reply(moment().format('dddd'));
 });
 
 bot.launch();
