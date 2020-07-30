@@ -1,7 +1,8 @@
-const moment = require('moment');
+
+const moment = require('moment-timezone');
 module.exports = {
     esJueves: function () {
-        console.log(moment().locale('es-CL').format('dddd'));
+        console.log(moment().tz("America/Santiago").locale('es-CL').format('dddd'));
         return moment().format('dddd') == 'jueves';
     },
 
