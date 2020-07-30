@@ -1,8 +1,7 @@
 const moment = require('moment');
 module.exports = {
     esJueves: function () {
-        moment.locale('es-CL'); 
-        console.log(moment().format('dddd'));
+        console.log(moment().locale('es-CL').format('dddd'));
         return moment().format('dddd') == 'jueves';
     },
 
