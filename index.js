@@ -1,6 +1,7 @@
 const { Composer } = require('micro-bot')
 const Extra = require('telegraf/extra');
 const functions = require('./functions/commons');
+const moment = require('moment');
 const bot = new Composer
 
 bot.start((context) => {
@@ -31,7 +32,7 @@ bot.command('praise', message =>{
 
 bot.command('testTimeZone', message =>{
 	moment.locale('es-CL'); 
-	message.reply(moment().format('dddd'));
+	message.reply(moment().format('dddd').toString());
 });
 
 function esJueves(ctx){
