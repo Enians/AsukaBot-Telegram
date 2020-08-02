@@ -6,13 +6,13 @@ const bot = new Composer;
 
 bot.command('jueves', message => {
 	if (commons.esJueves()) {
-		let msg = commons.getJuevesMsg();
-		message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
+		this.msg = commons.getJuevesMsg();
+		message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(this.msg).markdown());
 	}
 	else {
-		let dia = commons.queDia();
-		let msg = commons.getNoJuevesMsg(dia);
-		message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(msg).markdown());
+		this.dia = commons.queDia();
+		this.msg = commons.getNoJuevesMsg(this.dia);
+		message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(this.msg).markdown());
 	}
 });
 
