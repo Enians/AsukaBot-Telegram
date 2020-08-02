@@ -8,7 +8,7 @@ exports.NoEsJueves =  class  {
             this.msgs[0] = `Recién es ${ p_dia } 😡😡 ~Baka~`;
             this.msgs[1] = `😡 Anta baka? Hoy es ${ p_dia } 😡`;
             this.msgs[2] = `Es ${ p_dia } ~Baka~ 😡 Aún no es Jueves`;
-            this.msgs[3] = `Aún no es Jueves 😡😡 ~Baka~`;
+            this.msgs[3] = `Noch nicht Donnerstag 😡😡 ~Täuschen~`;
             this.msgs[4] = `~Baka~ Es ${p_dia}`;
         }
         GetMessage(){

@@ -24,7 +24,7 @@ bot.command('tester', message =>{
 	message.reply('Esto es un Comando de Prueba');
 });
 
-bot.command(['gato', 'cat', 'kitty', 'michi'], async (message) =>{
+bot.command(['gato', 'cat', 'becker', 'michi'], async (message) =>{
 	axios.defaults.headers.common['x-api-key'] = process.env.CAT_KEY;
 	let response = await axios.get('https://api.thecatapi.com/v1/images/search?mime_types=gif', { params: { limit:1, size:"full" } } )
 	this.image = response.data[0]
