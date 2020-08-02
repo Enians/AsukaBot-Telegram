@@ -1,5 +1,5 @@
-const rng = require('./randomNumbers');
-module.exports.noEsJueves = class {
+const {randomNumbers} = require('./randomNumbers');
+exports.noEsJueves = class {
         constructor(p_dia){
             this.msgs = new Array(5);
             this.InitiateMessages(capitalizeFirstLetter(p_dia));
@@ -12,12 +12,12 @@ module.exports.noEsJueves = class {
             this.msgs[4] = `~Baka~ Es ${p_dia}`;
         }
         GetMessage(){
-            var random = new rng.randomNumbers(0, this.msgs.length - 1);
+            var random = new randomNumbers(0, this.msgs.length - 1);
             return this.msgs[random.rng];
         }
 }
 
-module.exports.siEsJueves = class {
+exports.siEsJueves = class {
     constructor(){
         this.msgs = new Array(5);
         this.InitiateMessages();
@@ -30,7 +30,7 @@ module.exports.siEsJueves = class {
         this.msgs[4] = `Fröhlichen Donnerstag ❤️❤️❤️`;
     }
     GetMessage(){
-        var random = new rng.randomNumbers(0, this.msgs.length - 1);
+        var random = new randomNumbers(0, this.msgs.length - 1);
         return this.msgs[random.rng];
     }
 }
