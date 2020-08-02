@@ -2,7 +2,6 @@ const { Composer } = require('micro-bot')
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
 const moment = require('moment-timezone');
-const msgs = require('./functions/mensajes')
 const bot = new Composer
 
 bot.command('jueves', message=> {
