@@ -1,8 +1,7 @@
-const { Composer } = require('micro-bot')
+const { Composer } = require('micro-bot');
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
-const moment = require('moment-timezone');
-const bot = new Composer
+const bot = new Composer;
 
 bot.command('jueves', message=> {
 	if(commons.esJueves()){ 
@@ -15,11 +14,13 @@ bot.command('jueves', message=> {
 		message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(msg).markdown());
 	}
 });
+
 bot.command('praise', message =>{
 	message.reply(commons.getToucan());
 });
 
 bot.command('tester', message =>{
+	message.reply('Esto es un Comando de Prueba');
 });
 
-module.exports = bot
+export default bot;

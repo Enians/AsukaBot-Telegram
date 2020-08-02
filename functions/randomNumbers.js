@@ -1,4 +1,4 @@
-exports.randomNumbers = class {
+exports.RandomNumbers = class {
 
     constructor(p_min, p_max){
         this.min = Math.ceil(p_min);
