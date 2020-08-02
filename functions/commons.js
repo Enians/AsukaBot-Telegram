@@ -2,7 +2,7 @@ const moment = require('moment-timezone');
 const { NoJuevesGif, SiJuevesGif } = require('./gifContainer');
 const { NoEsJueves, SiEsJueves } = require('./mensajes');
 
-exports = {
+module.exports = {
 	esJueves: () => {
 		return moment().tz('America/Santiago').locale('es-CL').format('dddd') == 'jueves';
 	},
