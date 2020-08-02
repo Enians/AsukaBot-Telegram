@@ -23,4 +23,4 @@ bot.command('tester', message =>{
 	message.reply('Esto es un Comando de Prueba');
 });
 
-export default bot;
+module.exports = bot;
