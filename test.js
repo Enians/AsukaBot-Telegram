@@ -1,7 +1,6 @@
 const Telegraf = require('telegraf');
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
-const moment = require('moment-timezone');
 
 // t.me/JuevesTestBot
 const bot = new Telegraf(process.env.bot_test);

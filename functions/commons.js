@@ -1,7 +1,7 @@
 
 const moment = require('moment-timezone');
-const {noJuevesGif, siJuevesGif} = require('./gifContainer');
-const {noEsJueves, siEsJueves} = require('./mensajes');
+const {NoJuevesGif, SiJuevesGif} = require('./gifContainer');
+const {NoEsJueves, SiEsJueves} = require('./mensajes');
 
 module.exports = {
     esJueves: () => {
@@ -13,22 +13,22 @@ module.exports = {
     },
 
     getJuevesGif: () => {
-        var gif = new siJuevesGif();
+        var gif = new SiJuevesGif();
         return gif.GetGif();
     },
 
     getNoJuevesGif: () => {
-        var gif = new noJuevesGif();
+        var gif = new NoJuevesGif();
         return gif.GetGif();
     },
 
     getJuevesMsg: () => {
-        var msg = new siEsJueves();
+        var msg = new SiEsJueves();
         return msg.GetMessage();
     },
 
     getNoJuevesMsg: (p_dia) => {
-        var msg = new noEsJueves(p_dia);
+        var msg = new NoEsJueves(p_dia);
         return msg.GetMessage();
     },
 
