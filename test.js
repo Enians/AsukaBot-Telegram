@@ -3,7 +3,7 @@ const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
 
 // t.me/JuevesTestBot
-const bot = new Telegraf(process.env.bot_test);
+const bot = new Telegraf(process.env.BOT_TEST);
 
 bot.command('jueves', message=> {
 	if(commons.esJueves()){ 
