@@ -12,10 +12,10 @@ exports.NoEsJueves = class {
 		this.msgs[4] = `~Baka~ Es ${p_dia}`;
 	}
 	GetMessage() {
-		let random = new RandomNumbers(0, this.msgs.length - 1);
+		const random = new RandomNumbers(0, this.msgs.length - 1);
 		return this.msgs[random.rng];
 	}
-}
+};
 
 exports.SiEsJueves = class {
 	constructor() {
@@ -30,10 +30,10 @@ exports.SiEsJueves = class {
 		this.msgs[4] = 'Fröhlichen Donnerstag ❤️❤️❤️';
 	}
 	GetMessage() {
-		let random = new RandomNumbers(0, this.msgs.length - 1);
+		const random = new RandomNumbers(0, this.msgs.length - 1);
 		return this.msgs[random.rng];
 	}
-}
+};
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);

@@ -9,4 +9,4 @@ exports.RandomNumbers = class {
 	Reroll() {
 		this.rng = Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;
 	}
-}
+};

@@ -12,22 +12,22 @@ module.exports = {
 	},
 
 	getJuevesGif: () => {
-		let gif = new SiJuevesGif();
+		const gif = new SiJuevesGif();
 		return gif.GetGif();
 	},
 
 	getNoJuevesGif: () => {
-		let gif = new NoJuevesGif();
+		const gif = new NoJuevesGif();
 		return gif.GetGif();
 	},
 
 	getJuevesMsg: () => {
-		let msg = new SiEsJueves();
+		const msg = new SiEsJueves();
 		return msg.GetMessage();
 	},
 
 	getNoJuevesMsg: (p_dia) => {
-		let msg = new NoEsJueves(p_dia);
+		const msg = new NoEsJueves(p_dia);
 		return msg.GetMessage();
 	},
 

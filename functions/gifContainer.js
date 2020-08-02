@@ -12,7 +12,7 @@ exports.NoJuevesGif = class {
 		this.gifs[4] = 'https://i.gifer.com/C1Jc.gif';
 	}
 	GetGif() {
-		let random = new RandomNumbers(0, this.gifs.length - 1);
+		const random = new RandomNumbers(0, this.gifs.length - 1);
 		return this.gifs[random.rng];
 	}
 };
@@ -30,7 +30,7 @@ exports.SiJuevesGif = class {
 		this.gifs[4] = 'https://phoneky.co.uk/thumbs/screensavers/down/new/anime/asuka7575_Ql8RhPIV.gif';
 	}
 	GetGif() {
-		let random = new RandomNumbers(0, this.gifs.length - 1);
+		const random = new RandomNumbers(0, this.gifs.length - 1);
 		return this.gifs[random.rng];
 	}
-}
+};
