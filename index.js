@@ -1,6 +1,7 @@
 const { Composer } = require('micro-bot');
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
+const axios = require('axios');
 const bot = new Composer;
 
 bot.command('jueves', message=> {
@@ -21,6 +22,13 @@ bot.command('praise', message =>{
 
 bot.command('tester', message =>{
 	message.reply('Esto es un Comando de Prueba');
+});
+
+bot.command('gato', async (message) =>{
+	axios.defaults.headers.common['x-api-key'] = process.env.CAT_KEY;
+	let response = await axios.get('https://api.thecatapi.com/v1/images/search?mime_types=gif', { params: { limit:1, size:"full" } } )
+	this.image = response.data[0]
+	message.replyWithAnimation(this.image.url);
 });
 
 module.exports = bot;
