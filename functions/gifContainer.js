@@ -1,4 +1,4 @@
-const rng = require('./randomNumbers');
+const {randomNumbers} = require('./randomNumbers');
 module.exports.noJuevesGif = class {
     constructor(){
         this.gifs = new Array(5);
@@ -12,12 +12,12 @@ module.exports.noJuevesGif = class {
         this.gifs[4] = 'https://i.gifer.com/C1Jc.gif';
     }
     GetGif(){
-        var random = new rng.randomNumbers(0, this.gifs.length - 1);
+        var random = new randomNumbers(0, this.gifs.length - 1);
         return this.gifs[random.rng];
     }
 }
 
-module.exports.siJuevesgIF = class {
+module.exports.siJuevesGif = class {
     constructor(){
         this.gifs = new Array(5);
         this.InitiateMessages();
@@ -30,7 +30,7 @@ module.exports.siJuevesgIF = class {
         this.gifs[4] = 'https://phoneky.co.uk/thumbs/screensavers/down/new/anime/asuka7575_Ql8RhPIV.gif';
     }
     GetGif(){
-        var random = new rng.randomNumbers(0, this.gifs.length - 1);
+        var random = new randomNumbers(0, this.gifs.length - 1);
         return this.gifs[random.rng];
     }
 }

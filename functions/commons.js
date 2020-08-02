@@ -1,33 +1,34 @@
 
 const moment = require('moment-timezone');
-const gifs = require('./gifContainer');
-const msgs = require('./mensajes');
+const {noJuevesGif, siJuevesGif} = require('./gifContainer');
+const {noEsJueves, siEsJueves} = require('./mensajes');
+
 module.exports = {
-    esJueves: function () {
+    esJueves: () => {
         return moment().tz("America/Santiago").locale('es-CL').format('dddd') == 'jueves';
     },
 
-    queDia: function(){
+    queDia: () => {
         return moment().tz("America/Santiago").locale('es-CL').format('dddd');
     },
 
-    getJuevesGif: function() {
-        var gif = new gifs.siJuevesgIF();
+    getJuevesGif: () => {
+        var gif = new siJuevesGif();
         return gif.GetGif();
     },
 
-    getNoJuevesGif: function(){
-        var gif = new gifs.noJuevesGif();
+    getNoJuevesGif: () => {
+        var gif = new noJuevesGif();
         return gif.GetGif();
     },
 
-    getJuevesMsg: function(){
-        var msg = new msgs.siEsJueves();
+    getJuevesMsg: () => {
+        var msg = new siEsJueves();
         return msg.GetMessage();
     },
 
-    getNoJuevesMsg: function(p_dia){
-        var msg = new msgs.noEsJueves(p_dia);
+    getNoJuevesMsg: (p_dia) => {
+        var msg = new noEsJueves(p_dia);
         return msg.GetMessage();
     },
 

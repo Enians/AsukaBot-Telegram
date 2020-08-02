@@ -4,11 +4,18 @@ const commons = require('./functions/commons');
 const moment = require('moment-timezone');
 
 // t.me/JuevesTestBot
-const bot = new Telegraf('1361364503:AAEOCPGRGFk-xX0HYeNH--0X4D3kHBD_ga0');
+const bot = new Telegraf(process.env.bot_test);
 
 bot.command('jueves', message=> {
-	if(commons.esJueves()) message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(commons.getJuevesMsg()).markdown());
-	else message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(commons.getNoJuevesMsg(commons.queDia())).markdown());
+	if(commons.esJueves()){ 
+		msg = commons.getJuevesMsg();
+		message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
+	}
+	else{ 
+		dia = commons.queDia();
+		msg = commons.getNoJuevesMsg(dia);
+		message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(msg).markdown());
+	}
 });
 
 bot.command('praise', message =>{
