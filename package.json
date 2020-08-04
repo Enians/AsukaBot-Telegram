@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "eslint": "^7.6.0",
+    "fs": "0.0.1-security",
     "micro-bot": "^2.5.3",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",

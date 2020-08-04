@@ -1,6 +1,7 @@
 const moment = require('moment-timezone');
-const { NoJuevesGif, SiJuevesGif } = require('./gifContainer');
+const { NoJuevesGif, SiJuevesGif } = require('./gif');
 const { NoEsJueves, SiEsJueves } = require('./mensajes');
+const { RandomNumbers } = require('./randomNumbers');
 
 module.exports = {
 	esJueves: () => {
@@ -33,5 +34,16 @@ module.exports = {
 
 	getToucan: () => {
 		return '░░░░░░░▄▄▄▀▀▀▄▄███▄░░░\n░░░░▄▀▀░░░░░░░▐░▀██▌░░\n░░▄▀░░░░▄▄███░▌▀▀░▀█░░\n░▄█░░▄▀▀▒▒▒▒▒▄▐░░░░█▌░\n▐█▀▄▀▄▄▄▄▀▀▀▀▌░░░░░▐█▄\n▌▄▄▀▀░░░░░░░░▌░░░░▄███\n░░░░░░░░░░░░▐░░░░▐████\n░░░░le░░░░░░░▐░░░░▐████\n░░░toucan░░░░░░▀▄░░░▐███\n░░░░░has░░░░░░░░▀▄▄████\n░░░░░arrived░░░░░░░░░░░░█';
+	},
+
+	getAudioByChance: () => {
+		const rng = new RandomNumbers(1, 100);
+		console.log(rng.rng);
+		const audio1 = '/resources/FelizJueves1.ogg';
+		const audio2 = '/resources/FelizJueves2.ogg';
+		const audio3 = '/resources/FelizJueves3.ogg';
+		if(rng.rng <= 30) { return audio2; }
+		else if(rng.rng <= 50) { return audio3; }
+		else { return audio1; }
 	},
 };

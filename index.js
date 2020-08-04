@@ -2,12 +2,19 @@ const { Composer } = require('micro-bot');
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+const appRoot = path.resolve(__dirname);
 const bot = new Composer;
 
 bot.command('jueves', message => {
+	const audio = commons.getAudioByChance();
 	if (commons.esJueves()) {
 		const msg = commons.getJuevesMsg();
 		message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
+		if (audio != null) {
+			message.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+		}
 	}
 	else {
 		const dia = commons.queDia();
