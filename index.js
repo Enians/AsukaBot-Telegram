@@ -32,7 +32,7 @@ bot.command('tester', ctx => {
 		}
 	}
 	catch (error) {
-		ctx.reply(error);
+		console.log(error);
 	}
 });
 
