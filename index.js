@@ -27,8 +27,11 @@ bot.command('praise', message => {
 	message.reply(commons.getToucan());
 });
 
-bot.command('tester', message => {
-	message.reply('Esto es un Comando de Prueba');
+bot.command('tester', ctx =>{
+	const audio = commons.getAudioByChance();
+	if (audio != null) {
+		ctx.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+	}
 });
 
 bot.command(['gato', 'cat', 'becker', 'michi'], async (message) => {

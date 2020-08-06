@@ -27,7 +27,9 @@ bot.command('jueves', message=> {
 
 bot.command('tester', ctx =>{
 	const audio = commons.getAudioByChance();
-	ctx.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+	if (audio != null) {
+		ctx.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+	}
 });
 
 bot.command('praise', message =>{
