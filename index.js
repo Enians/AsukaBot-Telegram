@@ -2,9 +2,6 @@ const { Composer } = require('micro-bot');
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
-const appRoot = path.resolve(__dirname);
 const bot = new Composer;
 
 bot.command('jueves', message => {
@@ -13,7 +10,7 @@ bot.command('jueves', message => {
 		const msg = commons.getJuevesMsg();
 		message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
 		if (audio != null) {
-			message.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+			message.replyWithVoice({ url: ('https://drive.google.com/uc?' + audio) });
 		}
 	}
 	else {
@@ -27,10 +24,15 @@ bot.command('praise', message => {
 	message.reply(commons.getToucan());
 });
 
-bot.command('tester', ctx =>{
-	const audio = commons.getAudioByChance();
-	if (audio != null) {
-		ctx.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+bot.command('tester', ctx => {
+	try {
+		const audio = commons.getAudioByChance();
+		if (audio != null) {
+			ctx.replyWithVoice({ url: ('https://drive.google.com/uc?' + audio) });
+		}
+	}
+	catch (error) {
+		ctx.reply(error);
 	}
 });
 

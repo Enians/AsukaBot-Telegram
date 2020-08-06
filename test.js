@@ -2,9 +2,6 @@ const Telegraf = require('telegraf');
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
-const appRoot = path.resolve(__dirname);
 
 // t.me/JuevesTestBot
 const bot = new Telegraf(process.env.BOT_TEST);
@@ -15,7 +12,7 @@ bot.command('jueves', message=> {
 		const msg = commons.getJuevesMsg();
 		message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
 		if (audio != null) {
-			message.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+			message.replyWithVoice({ url: ('https://drive.google.com/uc?' + audio) });
 		}
 	}
 	else {
@@ -28,7 +25,7 @@ bot.command('jueves', message=> {
 bot.command('tester', ctx =>{
 	const audio = commons.getAudioByChance();
 	if (audio != null) {
-		ctx.replyWithVoice({ source: fs.createReadStream(appRoot + audio) });
+		ctx.replyWithVoice({ url: ('https://drive.google.com/uc?' + audio) });
 	}
 });
 
