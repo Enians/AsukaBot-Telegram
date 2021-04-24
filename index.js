@@ -45,7 +45,7 @@ bot.command(['perro', 'goodboi', 'dog'], async (message) => {
 });
 
 bot.command('help', message => {
-	message.reply('1) Para un FELIZ JUEVES - /jueves \n' +
+	message.reply('1) Para FELIZ JUEVES - /jueves \n' +
    '2) PRAISE THE TUCAN - /praise \n' +
    '3) Gifs de gatos - /gato | /cat | /michi \n' +
    '4) Para imagenes de perros - /perro | /dog | /goodboi \n');
