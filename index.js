@@ -8,9 +8,12 @@ bot.command('jueves', message => {
 	const audio = commons.getAudioByChance();
 	if (commons.esJueves()) {
 		const msg = commons.getJuevesMsg();
-		message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
-		if (audio != null) {
+		if (audio !== null) {
+			message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
 			message.replyWithVoice({ url: ('https://drive.google.com/uc?' + audio) });
+		}
+		else {
+			message.replyWithVideo({ url: ('https://drive.google.com/uc?id=1yylIjwQVTfbyp40I6p1nsuk6Pw3d6pES') }, Extra.caption(msg).markdown());
 		}
 	}
 	else {
