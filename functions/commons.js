@@ -42,9 +42,7 @@ module.exports = {
 		const audio1 = 'id=1qE8mAbNyFfjnGAwTkumVtYmWuPXI2PpC';
 		const audio2 = 'id=15M9g0u2yupuhtCQAfneAiCPsKi-OgmU2';
 		const audio3 = 'id=1ffljmTEAcBbwhm1CBkmBBfr3K2HZHNgz';
-		const noaudio = null;
-		if(rng.rng <= 15) { return noaudio; }
-		else if(rng.rng <= 30) { return audio2; }
+		if(rng.rng <= 30) { return audio2; }
 		else if(rng.rng <= 50) { return audio3; }
 		else { return audio1; }
 	},
