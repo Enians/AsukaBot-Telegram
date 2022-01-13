@@ -7,7 +7,7 @@
     "start": "micro-bot"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "eslint": "^7.6.0",
     "fs": "0.0.1-security",
     "micro-bot": "^2.5.3",
