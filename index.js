@@ -2,11 +2,12 @@ const { Composer } = require('micro-bot');
 const Extra = require('telegraf/extra');
 const commons = require('./functions/commons');
 const axios = require('axios');
+const {RandomNumbers} = require("./functions/randomNumbers");
 const bot = new Composer;
 
 bot.command('jueves', message => {
-	const audio = commons.getAudioByChance();
 	if (commons.esJueves()) {
+		const audio = commons.getAudioByChance();
 		const msg = commons.getJuevesMsg();
 		if (audio !== null) {
 			message.replyWithAnimation(commons.getJuevesGif(), Extra.caption(msg).markdown());
@@ -19,7 +20,21 @@ bot.command('jueves', message => {
 	else {
 		const dia = commons.queDia();
 		const msg = commons.getNoJuevesMsg(dia);
-		message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(msg).markdown());
+		// Get random number to determine if using special response
+		const rng = new RandomNumbers(1, 100);
+		if(rng.rng <= 5) {
+			switch (dia) {
+				case 'martes':
+					message.replyWithVideo({ url: ('https://drive.google.com/uc?id=1eaHcMGJJAKaPVFlAk7JwKQh8o74eGlzi') });
+					break;
+				default:
+					message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(msg).markdown());
+					break;
+			}
+		}
+		else {
+			message.replyWithAnimation(commons.getNoJuevesGif(), Extra.caption(msg).markdown());
+		}
 	}
 });
 
