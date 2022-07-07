@@ -11,7 +11,7 @@
     "eslint": "^7.6.0",
     "fs": "0.0.1-security",
     "micro-bot": "^2.5.3",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.31",
     "mongodb": "^3.6.0",
     "telegraf": "^3.38.0"
